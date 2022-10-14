@@ -24,7 +24,7 @@ namespace PreEntregaCoderHouse.Handlers
             {
                 conecction.Open();
                 SqlCommand cmd = conecction.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Venta WHERE p.IdUsuario = @idUsu";
+                cmd.CommandText = "SELECT * FROM Venta WHERE IdUsuario = @idUsu";
 
                 var paramIdUsu = new SqlParameter("idUsu", System.Data.SqlDbType.Int);
                 paramIdUsu.Value = idUsuario;

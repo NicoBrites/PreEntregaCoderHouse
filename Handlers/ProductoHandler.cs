@@ -1,35 +1,19 @@
-﻿using System;
+﻿using PreEntregaCoderHouse.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PreEntregaCoderHouse
+namespace PreEntregaCoderHouse.Handlers
 {
-    public class Producto
+    public class ProductoHandler
     {
-        public int Id { get; set; }
-        public string Descripcion { get; set; }
-        public double Costo { get; set; }
-        public double PrecioVenta { get; set; }
-        public int Stock { get; set; }
-        public int IdUsuario { get; set; }
-
-        public Producto()
-        {
-            Id = 0;
-            Descripcion = String.Empty;
-            Costo = 0;
-            PrecioVenta = 0;
-            Stock = 0;
-            IdUsuario = 0;
-        }
-
         public static List<Producto> TraerProducto(int idUsuario)
         {
             var listaProductos = new List<Producto>();
-            
+
             SqlConnectionStringBuilder conecctionbuilder = new();
             conecctionbuilder.DataSource = "NIKITODEVSS1";
             conecctionbuilder.InitialCatalog = "SistemaGestion";
@@ -58,7 +42,7 @@ namespace PreEntregaCoderHouse
                     prod.PrecioVenta = Convert.ToInt32(reader.GetValue(3));
                     prod.Stock = Convert.ToInt32(reader.GetValue(4));
                     prod.IdUsuario = Convert.ToInt32(reader.GetValue(5));
-                    
+
                     listaProductos.Add(prod);
                 }
 
@@ -67,5 +51,6 @@ namespace PreEntregaCoderHouse
                 return listaProductos;
             }
         }
+
     }
 }

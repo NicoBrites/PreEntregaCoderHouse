@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PreEntregaCoderHouse
+namespace PreEntregaCoderHouse.Models
 {
     public class Venta
     {
@@ -17,7 +17,7 @@ namespace PreEntregaCoderHouse
         public Venta()
         {
             Id = 0;
-            Comentarios = String.Empty;
+            Comentarios = string.Empty;
             IdUsuario = 0;
         }
     }
